@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: password
+  web:
+    build: .
+    volumes:
+      - .:/rails
+    ports:
+      - "80:80"
+    depends_on:
+      - db
