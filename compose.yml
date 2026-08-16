@@ -5,7 +5,9 @@ services:
     environment:
       POSTGRES_PASSWORD: password
   web:
-    build: .
+    build:
+      context: .
+      target: build
     volumes:
       - .:/rails
     ports:
